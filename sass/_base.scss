@@ -1,0 +1,24 @@
+/**
+ * RESET
+ */
+
+@charset "UTF-8";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; /* define 10px rem unit */
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    box-sizing: border-box;
+}

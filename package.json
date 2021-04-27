@@ -1,0 +1,31 @@
+{
+  "name": "presspro-original-theme-4-eci",
+  "version": "1.0.0",
+  "description": "WordPress theme for ECI Corp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nowapracownia/eci-theme.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme"
+  ],
+  "author": "presspro::dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nowapracownia/eci-theme/issues"
+  },
+  "homepage": "https://github.com/nowapracownia/eci-theme#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "concat": "^1.0.3",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.13",
+    "postcss-cli": "^8.3.1"
+  }
+}
