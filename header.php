@@ -14,7 +14,12 @@
 
         <div class="site-wrapper"> <!-- begin site wrapper -->
 
-        <header>
-            <p><a href="<?php echo home_url(); ?>"><?php _e('presspro::dev starter','presspro-original-theme'); ?></a></p>
-            <?php wp_nav_menu(); ?>
+        <header class="site-header">
+            <div class="site-header__logo"><a href="<?php echo home_url(); ?>"><?php _e('presspro::dev starter','presspro-original-theme'); ?></a></div>
+            <label for="site-header-trigger">&times;</label>
+            <input type="checkbox" id="site-header-trigger" class="site-header__trigger" />
+            <div class="site-header__inner">
+                <div class="site-header__menu"><?php wp_nav_menu(); ?></div>
+                <div class="site-header__widget"><?php get_template_part('template-parts/header','widget'); ?></div>
+            </div>
         </header>

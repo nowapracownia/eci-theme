@@ -4,7 +4,12 @@
   "description": "WordPress theme for ECI Corp.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass sass/main.scss sass/style.comp.css",
+    "concat:css": "concat -o sass/style.concat.css css_src/[plik1].css css_src/[plik2].css sass/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' sass/style.comp.css -o sass/style.prefix.css",
+    "compress:css": "node-sass sass/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "repository": {
     "type": "git",

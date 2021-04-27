@@ -1,0 +1,92 @@
+/**
+ * MIXINS
+ */
+
+@mixin absoluteimage {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+@mixin clearfix {
+
+    &::after {
+        content:"";
+        display: table;
+        clear: both;
+    }
+
+}
+
+@mixin stretchandcenter {
+
+    width: 100vw;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+
+}
+
+@mixin basictransition {
+    transition: all .33s;
+}
+
+/**
+ * MEDIA QUERY MANAGER
+/* 1em = 16px
+*/
+
+$min-tablet: 48em; //768px
+$max-tablet: 47.9375em; //767px
+$min-mid-tablet: 64em; // 1024px
+$max-mid-tablet: 63.9375em; // 1023px
+$min-small-desktop: 75em; //1200px
+$max-small-desktop: 74.9375em; //1199px
+$min-big-desktop: 105em; // 1680px
+$max-big-desktop: 104.9375em; // 1679px
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == only-phone {
+        @media only screen and (max-width: 37.5em) { @content }; // 600px
+    }
+    @if $breakpoint == min-tablet {
+        @media only screen and (min-width: $min-tablet) { @content };
+    }
+    @if $breakpoint == max-tablet {
+        @media only screen and (max-width: $max-tablet) { @content };
+    }
+    @if $breakpoint == min-mid-tablet {
+        @media only screen and (min-width: $min-mid-tablet) { @content };
+    }
+    @if $breakpoint == max-mid-tablet {
+        @media only screen and (max-width: $max-mid-tablet) { @content };
+    }
+    @if $breakpoint == min-small-desktop {
+        @media only screen and (min-width: $min-small-desktop) { @content };
+    }
+    @if $breakpoint == max-small-desktop {
+        @media only screen and (max-width: $max-small-desktop) { @content };
+    }
+    @if $breakpoint == min-big-desktop {
+        @media only screen and (min-width: $min-big-desktop) { @content };
+    }
+    @if $breakpoint == max-big-desktop {
+        @media only screen and (max-width: $max-big-desktop) { @content };
+    }
+}
+
+/**
+ * VARIABLES
+ */
+
+$color-white: #FFFFFF;
+$color-light: #F2F2F2;
+$color-black: #3C3C3C;
+$color-primary: #FFCC00;
