@@ -24,6 +24,35 @@ body {
 }
 
 /**
+ * ANIMATIONS
+ */
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(168rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveOutRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(168rem);
+        display: none;
+    }
+}
+
+/**
  * TYPOGRAPHY
  */
 

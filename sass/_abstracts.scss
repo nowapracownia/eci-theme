@@ -15,6 +15,12 @@
 
 }
 
+@mixin basictransition {
+
+    transition: all .33s;
+
+}
+
 @mixin clearfix {
 
     &::after {
@@ -25,6 +31,14 @@
 
 }
 
+@mixin flexcenter {
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
 @mixin stretchandcenter {
 
     width: 100vw;
@@ -32,10 +46,6 @@
     position: relative;
     transform: translateX(-50%);
 
-}
-
-@mixin basictransition {
-    transition: all .33s;
 }
 
 /**
