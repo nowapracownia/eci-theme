@@ -23,6 +23,14 @@ body {
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
 /**
  * ANIMATIONS
  */
@@ -59,4 +67,12 @@ body {
 .site-wrapper {
     font-family: 'Montserrat', sans-serif;
     color: $color-black;
+}
+
+.site-header__inner {
+    a {
+        color: black;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 }

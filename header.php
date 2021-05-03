@@ -15,8 +15,8 @@
         <div class="site-wrapper"> <!-- begin site wrapper -->
 
         <header class="site-header">
-            <div class="site-header__logo"><a href="<?php echo home_url(); ?>"><?php _e('presspro::dev starter','presspro-original-theme'); ?></a></div>
-            <label for="site-header-trigger">&times;</label>
+            <div class="site-header__logo"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="<?php _e('ECI Corp.','presspro-original-theme'); ?>"></a></div>
+            <label for="site-header-trigger"><span class="menu-toggle"></span></label>
             <input type="checkbox" id="site-header-trigger" class="site-header__trigger" />
             <div class="site-header__inner">
                 <div class="site-header__menu"><?php wp_nav_menu(); ?></div>

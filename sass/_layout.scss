@@ -4,10 +4,14 @@
 
 .site-wrapper {
     display: grid;
-    grid-template-columns: repeat(12,1fr);
+    grid-template-columns: repeat(4,1fr);
+    @include respond(min-tablet) {
+        grid-template-columns: repeat(12,1fr);
+    }
     grid-gap: 2rem;
     max-width: 168rem;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 /**
@@ -15,7 +19,7 @@
  */
 
 header, footer {
-    grid-column: 1/13;
+    grid-column: 1/-1;
 }
 
 .site-header{
@@ -31,23 +35,29 @@ header, footer {
     &__inner {
         animation: moveOutRight .5s;
         animation-fill-mode: forwards;
+        display: flex;
+
+        height: 11rem;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4rem;
     }
 
     label {
         flex: 0 0 8.5%;
         order: 1;
+        height: 11rem;
         @include flexcenter;
     }
 
     &__inner {
-        flex: 0 0 76%;
+        flex: 0 1 76%;
     }
 
     &__trigger {
         display:none;
 
         &:checked + .site-header__inner {
-            display: block;
             animation: moveInRight .5s;
             background: $color-white;
         }

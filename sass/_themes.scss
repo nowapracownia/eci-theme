@@ -5,3 +5,17 @@
 body {
     background: $color-white;
 }
+
+.site-header__logo {
+    background: $color-true-black;
+
+    a {
+        width: 100%;
+
+        img {
+            width: 80%;
+            display: block;
+            margin: 3rem auto;
+        }
+    }
+}

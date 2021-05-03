@@ -32,6 +32,12 @@ body {
   line-height: 1.2;
   box-sizing: border-box; }
 
+a {
+  text-decoration: none; }
+
+ul {
+  list-style: none; }
+
 /**
  * ANIMATIONS
  */
@@ -59,21 +65,48 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: #3C3C3C; }
 
+.site-header__inner a {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.menu-toggle {
+  display: block;
+  position: relative;
+  background-color: #000000;
+  width: 5rem;
+  height: 2px; }
+  .menu-toggle::before, .menu-toggle::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color: #000000; }
+  .menu-toggle::before {
+    top: 1rem; }
+  .menu-toggle::after {
+    bottom: 1rem; }
+
 /**
  * GRID
  */
 .site-wrapper {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
   max-width: 168rem;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
+  @media only screen and (min-width: 48em) {
+    .site-wrapper {
+      grid-template-columns: repeat(12, 1fr); } }
 
 /**
  * HEADER & FOOTER
  */
 header, footer {
-  grid-column: 1/13; }
+  grid-column: 1/-1; }
 
 .site-header {
   display: flex;
@@ -82,22 +115,27 @@ header, footer {
     flex: 0 0 15.5%;
     display: flex;
     justify-content: center;
-    align-content: center; }
+    align-items: center; }
   .site-header__inner {
     animation: moveOutRight .5s;
-    animation-fill-mode: forwards; }
+    animation-fill-mode: forwards;
+    display: flex;
+    height: 11rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem; }
   .site-header label {
     flex: 0 0 8.5%;
     order: 1;
+    height: 11rem;
     display: flex;
     justify-content: center;
-    align-content: center; }
+    align-items: center; }
   .site-header__inner {
-    flex: 0 0 76%; }
+    flex: 0 1 76%; }
   .site-header__trigger {
     display: none; }
     .site-header__trigger:checked + .site-header__inner {
-      display: block;
       animation: moveInRight .5s;
       background: #FFFFFF; }
 
@@ -106,3 +144,18 @@ header, footer {
  */
 body {
   background: #FFFFFF; }
+
+.site-header__logo {
+  background: #000000; }
+  .site-header__logo a {
+    width: 100%; }
+    .site-header__logo a img {
+      width: 80%;
+      display: block;
+      margin: 3rem auto; }
+
+/* POLYLANG */
+.widget_polylang ul li {
+  display: inline-block; }
+  .widget_polylang ul li span {
+    display: none; }
