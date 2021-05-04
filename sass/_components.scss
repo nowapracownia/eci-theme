@@ -3,6 +3,12 @@
     position: relative;
     background-color: $color-true-black;
     width: 5rem;
+    @include respond(min-tablet) {
+        width: 3rem;
+    }
+    @include respond(min-small-desktop) {
+        width: 5rem;
+    }
     height: 2px;
 
     &::before, &::after {
