@@ -6,16 +6,37 @@ body {
     background: $color-white;
 }
 
-.site-header__logo {
-    background: $color-true-black;
+.site-wrapper {
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
 
-    a {
-        width: 100%;
+.site-header {
+    label {
+        background-color: $color-white;
+    }
+}
 
-        img {
-            width: 80%;
-            display: block;
-            margin: 3rem auto;
+.site-header {
+
+    &__logo {
+        background: $color-true-black;
+
+        a {
+            width: 100%;
+            position: relative;
+            height: 0;
+            padding-top: 135%;
+
+            img {
+                @include absoluteimage;
+                transform: scale(.75);
+            }
         }
     }
+
+    &__inner {
+        background-color: $color-white;
+    }
+
 }

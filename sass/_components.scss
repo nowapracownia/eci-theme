@@ -12,11 +12,25 @@
         height: 2px;
         position: absolute;
         background-color: $color-true-black;
-    }
-    &::before {
-        top:1rem;
+        transition: transform .33s;
     }
     &::after {
+        top:1rem;
+    }
+    &::before {
         bottom:1rem;
+    }
+}
+
+#site-header-trigger:checked + label .menu-toggle {
+    background-color: transparent;
+
+    &::after {
+        top:0;
+        transform: rotate(-45deg);
+    }
+    &::before {
+        bottom:0;
+        transform: rotate(45deg);
     }
 }

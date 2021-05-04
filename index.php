@@ -1,25 +1,38 @@
 <?php get_header(); ?>
 
-<section id="sidebar-left" class="sidebar sidebar__left">
-    <?php get_sidebar( 'left' ); ?>
-</section>
-<section id="main">
+<?php
+    $meta = array();
+    if(function_exists('get_field')) {
+        $meta['hbg'] = get_field('header-bg-image');
+        $meta['fbg'] = get_field('footer-bg-image');
+    }
+?>
+
+<?php
+
+    if(isset($meta['hbg']) && !empty($meta['hbg'])) :
+
+        $hbg_url = wp_get_attachment_image_url($meta['hbg'],'full'); ?>
+
+        <div class="site-hero" style="background-image:url(<?php echo $hbg_url; ?>);"></div>
+
+    <?php endif;
+
+?>
+
+<section>
 
     <?php
         if ( have_posts() ) {
             while ( have_posts() ) {
                 the_post();
                 ?>
-                    <h1><?php the_title(); ?></h1>
-                    <article><?php the_content(); ?></article>
+                    <?php the_content(); ?>
                 <?php
             }
         }
     ?>
 
-</section>
-<section id="sidebar-right" class="sidebar sidebar__right">
-    <?php get_sidebar( 'right' ); ?>
 </section>
 
 <?php get_footer(); ?>
