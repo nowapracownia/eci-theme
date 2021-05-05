@@ -40,3 +40,15 @@ body {
     }
 
 }
+
+.main-section {
+    .counter-section {
+        padding: 10%;
+        background: $color-black;
+        color: $color-white;
+
+        * {
+            color: $color-white;
+        }
+    }
+}

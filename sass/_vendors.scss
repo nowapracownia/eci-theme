@@ -8,3 +8,21 @@
         }
     }
 }
+
+/* WP FORMS */
+.footer-form {
+    .eci-form.eci-footer-form {
+        input[type=text], input[type=email], textarea {
+            border-radius: .4rem;
+            border: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+        .wpforms-form {
+            .wpforms-field-label {
+                font-weight: normal;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

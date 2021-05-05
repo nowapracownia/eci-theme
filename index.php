@@ -7,6 +7,9 @@
         $meta['hct'] = get_field('header-content');
         $meta['fbg'] = get_field('footer-bg-image');
         $meta['fct'] = get_field('footer-content');
+        $meta['pfsc'] = get_field('portfolio-section');
+        $meta['eqsc'] = get_field('equipment-section');
+        $meta['lgsc'] = get_field('logo-section');
     }
 ?>
 
@@ -27,7 +30,7 @@
 
 ?>
 
-<section>
+<section class="main-section">
 
     <?php
         if ( have_posts() ) {
@@ -41,5 +44,27 @@
     ?>
 
 </section>
+
+
+<?php if(isset($meta['pfsc']) && !empty($meta['pfsc'])) : ?>
+    <section class="section portfolio-section">
+        <h2><?php echo get_the_title($meta['pfsc']); ?></h2>
+        <div class="section__inner"><?php echo do_blocks($meta['pfsc']->post_content); ?></div>
+    </section>
+<?php endif; ?>
+
+<?php if(isset($meta['eqsc']) && !empty($meta['eqsc'])) : ?>
+    <section class="section equipment-section">
+        <h2><?php echo get_the_title($meta['eqsc']); ?></h2>
+        <div class="section__inner"><?php echo do_blocks($meta['eqsc']->post_content); ?></div>
+    </section>
+<?php endif; ?>
+
+<?php if(isset($meta['lgsc']) && !empty($meta['lgsc'])) : ?>
+    <section class="section logo-section">
+        <h2><?php echo get_the_title($meta['lgsc']); ?></h2>
+        <div class="section__inner"><?php echo do_blocks($meta['lgsc']->post_content); ?></div>
+    </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
