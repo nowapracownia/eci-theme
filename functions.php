@@ -2,6 +2,8 @@
 
 // BASIC CONFIG
 
+add_theme_support( 'post-thumbnails' );
+
 function load_theme_assets() {
 	wp_enqueue_style( 'theme-style', get_stylesheet_uri() , array( 'main' ) );
     wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/style.css', array(), time() );

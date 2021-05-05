@@ -64,6 +64,24 @@ ul {
  * TYPOGRAPHY
  */
 
+h2 {
+    &.section-header {
+        font-size: 4.8rem;
+        text-align: center;
+        margin: 1em 0;
+        position: relative;
+
+        &::after {
+            content:"";
+            display: block;
+            width: 12rem;
+            height: 5px;
+            background: $color-black;
+            margin: .5em auto 0;
+        }
+    }
+}
+
 .site-wrapper {
     font-family: 'Montserrat', sans-serif;
     color: $color-black;

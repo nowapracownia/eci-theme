@@ -48,22 +48,22 @@
 
 <?php if(isset($meta['pfsc']) && !empty($meta['pfsc'])) : ?>
     <section class="section portfolio-section">
-        <h2><?php echo get_the_title($meta['pfsc']); ?></h2>
+        <h2 class="section-header"><?php echo get_the_title($meta['pfsc']); ?></h2>
         <div class="section__inner"><?php echo do_blocks($meta['pfsc']->post_content); ?></div>
     </section>
 <?php endif; ?>
 
 <?php if(isset($meta['eqsc']) && !empty($meta['eqsc'])) : ?>
     <section class="section equipment-section">
-        <h2><?php echo get_the_title($meta['eqsc']); ?></h2>
+        <h2 class="section-header"><?php echo get_the_title($meta['eqsc']); ?></h2>
         <div class="section__inner"><?php echo do_blocks($meta['eqsc']->post_content); ?></div>
     </section>
 <?php endif; ?>
 
 <?php if(isset($meta['lgsc']) && !empty($meta['lgsc'])) : ?>
     <section class="section logo-section">
-        <h2><?php echo get_the_title($meta['lgsc']); ?></h2>
-        <div class="section__inner"><?php echo do_blocks($meta['lgsc']->post_content); ?></div>
+        <h2 class="section-header"><?php echo get_the_title($meta['lgsc']); ?></h2>
+        <div class="section__inner"><?php echo do_blocks(do_shortcode($meta['lgsc']->post_content)); ?></div>
     </section>
 <?php endif; ?>
 
