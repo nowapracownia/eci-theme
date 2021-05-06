@@ -61,18 +61,36 @@ ul {
 /**
  * TYPOGRAPHY
  */
-h2.section-header {
-  font-size: 4.8rem;
-  text-align: center;
-  margin: 1em 0;
-  position: relative; }
-  h2.section-header::after {
+h2 {
+  font-size: 2.4rem;
+  margin: 0 0 1em; }
+  @media only screen and (min-width: 48em) {
+    h2 {
+      font-size: 3.6rem; } }
+  @media only screen and (min-width: 105em) {
+    h2 {
+      font-size: 4.8rem; } }
+  h2::after {
     content: "";
     display: block;
     width: 12rem;
-    height: 5px;
+    height: 3px;
     background: #3C3C3C;
-    margin: .5em auto 0; }
+    margin: .75em 0 0; }
+    @media only screen and (min-width: 48em) {
+      h2::after {
+        height: 4px; } }
+    @media only screen and (min-width: 105em) {
+      h2::after {
+        height: 5px; } }
+  h2.has-text-align-right::after {
+    margin-left: auto; }
+  h2.section-header {
+    text-align: center;
+    position: relative;
+    margin: 1em 0; }
+    h2.section-header::after {
+      margin: .75em auto 0; }
 
 .site-wrapper {
   font-family: 'Montserrat', sans-serif;
@@ -107,6 +125,9 @@ h2.section-header {
     @media only screen and (min-width: 75em) {
       .site-hero__inner p {
         font-size: 1vw; } }
+
+.main-section {
+  font-size: 1.6rem; }
 
 .site-footer {
   font-size: 1.6rem;
@@ -202,8 +223,9 @@ footer, section {
     footer, section {
       grid-column: 2/-2; } }
 
-section {
-  padding: 0 2rem; }
+@media only screen and (max-width: 37.5em) {
+  section {
+    padding: 0 2rem; } }
 
 .site-header {
   display: flex;
@@ -302,6 +324,58 @@ section {
       @media only screen and (min-width: 75em) {
         .site-hero .site-hero__inner > *:nth-child(3) {
           padding-right: 15%; } }
+
+.main-section .wp-block-media-text {
+  padding-top: 4rem;
+  padding-bottom: 4rem; }
+  .main-section .wp-block-media-text:first-of-type {
+    padding-top: 6rem; }
+  @media only screen and (min-width: 75em) {
+    .main-section .wp-block-media-text.has-media-on-the-right {
+      margin-right: 10%;
+      grid-template-columns: 57% 43%; }
+    .main-section .wp-block-media-text:not(.has-media-on-the-right) {
+      margin-left: 10%;
+      grid-template-columns: 43% 57%; } }
+  .main-section .wp-block-media-text p {
+    position: relative;
+    margin-bottom: 1em; }
+    .main-section .wp-block-media-text p::before {
+      content: "";
+      background: #3C3C3C;
+      width: 1.25em;
+      height: 1.25em;
+      display: inline-block;
+      position: relative;
+      top: .25em;
+      margin-right: 1rem;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 20% 20%, 20% 80%, 100% 80%, 100% 100%, 0% 100%); }
+    .main-section .wp-block-media-text p::after {
+      content: "";
+      background: #FFCC00;
+      display: block;
+      width: calc(.5 * 1.25em);
+      height: .25em;
+      position: absolute;
+      top: 50%;
+      left: calc(1.25 * 1.25em); }
+    .main-section .wp-block-media-text p::before {
+      position: absolute;
+      top: 50%; }
+    .main-section .wp-block-media-text p::after {
+      transform: translateY(-50%); }
+  .main-section .wp-block-media-text.has-media-on-the-right p::before {
+    left: auto;
+    right: -2em;
+    transform: translate(100%, -50%) rotate(180deg); }
+  .main-section .wp-block-media-text.has-media-on-the-right p::after {
+    left: auto;
+    right: calc(1.25 * -1.625em); }
+  .main-section .wp-block-media-text:not(.has-media-on-the-right) p::before {
+    left: -2em;
+    transform: translateY(-50%); }
+  .main-section .wp-block-media-text:not(.has-media-on-the-right) p::after {
+    left: calc(1.25 * -1.125em); }
 
 .main-section .counter-section {
   width: 100vw;
@@ -407,7 +481,6 @@ body {
   .portfolio-section .wp-block-latest-posts.is-grid a::before {
     content: "";
     background: #3C3C3C;
-    display: block;
     width: 1.25em;
     height: 1.25em;
     display: inline-block;

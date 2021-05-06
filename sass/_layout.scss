@@ -30,7 +30,9 @@ footer, section {
 }
 
 section {
-    padding:0 2rem;
+    @include respond(only-phone) {
+        padding:0 2rem;
+    }
 }
 
 .site-header {
@@ -149,6 +151,61 @@ section {
 }
 
 .main-section {
+    .wp-block-media-text {
+        padding-top: 4rem;
+        &:first-of-type {
+            padding-top: 6rem;
+        }
+        padding-bottom: 4rem;
+        @include respond(min-small-desktop) {
+            &.has-media-on-the-right {
+                margin-right: 10%;
+                grid-template-columns: 57% 43%;
+            }
+            &:not(.has-media-on-the-right) {
+                margin-left: 10%;
+                grid-template-columns: 43% 57%;
+            }
+        }
+
+        p {
+            position: relative;
+            margin-bottom: 1em;
+            @include indicator;
+            &::before {
+                position: absolute;
+                top: 50%;
+            }
+            &::after {
+                transform: translateY(-50%);
+            }
+        }
+
+        &.has-media-on-the-right {
+            p {
+                &::before {
+                    left: auto;
+                    right: -2em;
+                    transform: translate(100%,-50%) rotate(180deg);
+                }
+                &::after {
+                    left: auto;
+                    right: calc(1.25 * -1.625em);
+                }
+            }
+        }
+        &:not(.has-media-on-the-right) {
+            p {
+                &::before {
+                    left: -2em;
+                    transform: translateY(-50%);
+                }
+                &::after {
+                    left: calc(1.25 * -1.125em);
+                }
+            }
+        }
+    }
     .counter-section {
         width: 100vw;
         position: relative;
