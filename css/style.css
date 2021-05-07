@@ -70,6 +70,9 @@ h2 {
   @media only screen and (min-width: 105em) {
     h2 {
       font-size: 4.8rem; } }
+  @media only screen and (max-width: 37.5em) {
+    h2 {
+      margin-top: 2em; } }
   h2::after {
     content: "";
     display: block;
@@ -100,6 +103,14 @@ h2 {
   color: black;
   font-weight: bold;
   text-transform: uppercase; }
+
+@media only screen and (min-width: 48em) and (max-width: 63.9375em) {
+  .site-header__menu .menu li {
+    font-size: 1rem; } }
+
+@media only screen and (min-width: 64em) and (max-width: 74.9375em) {
+  .site-header__menu .menu li {
+    font-size: 1.4rem; } }
 
 .site-hero__inner {
   color: #FFFFFF; }
@@ -252,7 +263,6 @@ footer, section {
     animation-fill-mode: forwards;
     display: flex;
     flex: 0 0 100%;
-    height: 11rem;
     align-items: center;
     justify-content: space-between;
     padding: 4rem; }
@@ -260,6 +270,9 @@ footer, section {
       .site-header__inner {
         order: 2;
         flex: 1 0 74.1%; } }
+    @media only screen and (min-width: 48em) {
+      .site-header__inner {
+        height: 11rem; } }
   .site-header label {
     order: 2;
     flex: 1 0 8.5%;
@@ -277,6 +290,17 @@ footer, section {
     display: none; }
     .site-header__trigger:checked ~ .site-header__inner {
       animation: moveInRight .5s; }
+  .site-header__menu .menu li {
+    display: inline-block;
+    margin-right: 1em; }
+    @media only screen and (max-width: 47.9375em) {
+      .site-header__menu .menu li {
+        display: block;
+        margin-top: 1em; } }
+    .site-header__menu .menu li a {
+      transition: all .33s; }
+      .site-header__menu .menu li a:hover {
+        color: #FFCC00; }
 
 .site-hero {
   grid-column: 1/-1;
@@ -330,40 +354,50 @@ footer, section {
   padding-bottom: 4rem; }
   .main-section .wp-block-media-text:first-of-type {
     padding-top: 6rem; }
+  @media only screen and (min-width: 48em) {
+    .main-section .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+      padding: 0 16% 0 8%; }
+    .main-section .wp-block-media-text:not(.has-media-on-the-right) .wp-block-media-text__content {
+      padding: 0 8% 0 14%; } }
   @media only screen and (min-width: 75em) {
     .main-section .wp-block-media-text.has-media-on-the-right {
       margin-right: 10%;
       grid-template-columns: 57% 43%; }
+      .main-section .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+        padding: 0 24% 0 8%; }
     .main-section .wp-block-media-text:not(.has-media-on-the-right) {
       margin-left: 10%;
-      grid-template-columns: 43% 57%; } }
+      grid-template-columns: 43% 57%; }
+      .main-section .wp-block-media-text:not(.has-media-on-the-right) .wp-block-media-text__content {
+        padding: 0 8% 0 24%; } }
   .main-section .wp-block-media-text p {
     position: relative;
     margin-bottom: 1em; }
-    .main-section .wp-block-media-text p::before {
-      content: "";
-      background: #3C3C3C;
-      width: 1.25em;
-      height: 1.25em;
-      display: inline-block;
-      position: relative;
-      top: .25em;
-      margin-right: 1rem;
-      clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 20% 20%, 20% 80%, 100% 80%, 100% 100%, 0% 100%); }
-    .main-section .wp-block-media-text p::after {
-      content: "";
-      background: #FFCC00;
-      display: block;
-      width: calc(.5 * 1.25em);
-      height: .25em;
-      position: absolute;
-      top: 50%;
-      left: calc(1.25 * 1.25em); }
-    .main-section .wp-block-media-text p::before {
-      position: absolute;
-      top: 50%; }
-    .main-section .wp-block-media-text p::after {
-      transform: translateY(-50%); }
+    @media only screen and (min-width: 48em) {
+      .main-section .wp-block-media-text p::before {
+        content: "";
+        background: #3C3C3C;
+        width: 1.25em;
+        height: 1.25em;
+        display: inline-block;
+        position: relative;
+        top: .25em;
+        margin-right: 1rem;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 20% 20%, 20% 80%, 100% 80%, 100% 100%, 0% 100%); }
+      .main-section .wp-block-media-text p::after {
+        content: "";
+        background: #FFCC00;
+        display: block;
+        width: calc(.5 * 1.25em);
+        height: .25em;
+        position: absolute;
+        top: 50%;
+        left: calc(1.25 * 1.25em); }
+      .main-section .wp-block-media-text p::before {
+        position: absolute;
+        top: 50%; }
+      .main-section .wp-block-media-text p::after {
+        transform: translateY(-50%); } }
   .main-section .wp-block-media-text.has-media-on-the-right p::before {
     left: auto;
     right: -2em;
@@ -390,11 +424,25 @@ footer, section {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 2rem;
-  padding: 10% 0; }
+  padding: 10% 0 0; }
   .site-footer .footer-text {
-    grid-column: 2/4; }
+    grid-column: 2/-2; }
+    @media only screen and (min-width: 48em) {
+      .site-footer .footer-text {
+        grid-column: 1/5; } }
+    @media only screen and (min-width: 75em) {
+      .site-footer .footer-text {
+        grid-column: 2/4; } }
+    .site-footer .footer-text img {
+      max-width: 10rem; }
   .site-footer .footer-form {
-    grid-column: 5/9; }
+    grid-column: 2/-2; }
+    @media only screen and (min-width: 48em) {
+      .site-footer .footer-form {
+        grid-column: 5/-2; } }
+    @media only screen and (min-width: 75em) {
+      .site-footer .footer-form {
+        grid-column: 5/9; } }
 
 /**
  * THEME
@@ -431,11 +479,41 @@ body {
   background-color: #FFFFFF; }
 
 .main-section .counter-section {
-  padding: 10%;
+  padding: 8rem 20%;
   background: #3C3C3C;
   color: #FFFFFF; }
   .main-section .counter-section * {
     color: #FFFFFF; }
+
+.main-section .wp-block-media-text {
+  position: relative; }
+  .main-section .wp-block-media-text__media {
+    position: relative;
+    z-index: 1; }
+  .main-section .wp-block-media-text::before {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    background-image: url(../img/eci-gfx.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 32.14%;
+    height: 100%; }
+    @media only screen and (min-width: 75em) {
+      .main-section .wp-block-media-text::before {
+        content: ""; } }
+  .main-section .wp-block-media-text:nth-of-type(1)::before {
+    top: 0;
+    right: 0;
+    transform: translate(70%, -25%); }
+  .main-section .wp-block-media-text:nth-of-type(2)::before {
+    top: 0;
+    left: 0;
+    transform: translate(-70%, -5%); }
+  .main-section .wp-block-media-text:nth-of-type(3)::before {
+    bottom: 0;
+    right: 0;
+    transform: translate(70%, 50%); }
 
 /* LOGO CAROUSEL */
 .swiper-wrapper {
@@ -448,6 +526,26 @@ body {
   display: inline-block; }
   .widget_polylang ul li span {
     display: none; }
+
+.widget_polylang .lang-item a {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 1px solid;
+  position: relative; }
+  .widget_polylang .lang-item a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important; }
 
 /* WP LATEST POST BLOCK */
 .wp-block-latest-posts.is-grid .wp-block-latest-posts__featured-image {
@@ -472,12 +570,15 @@ body {
   display: inline-block;
   padding: 1em;
   color: #3C3C3C;
-  font-size: 1.4vw;
+  font-size: 1.8rem;
   text-transform: uppercase;
   position: relative;
   left: 50%;
   transform: translate(-50%, -55%);
   background-color: rgba(242, 242, 242, 0.9); }
+  @media only screen and (min-width: 48em) {
+    .portfolio-section .wp-block-latest-posts.is-grid a {
+      font-size: 1.4vw; } }
   .portfolio-section .wp-block-latest-posts.is-grid a::before {
     content: "";
     background: #3C3C3C;
@@ -512,11 +613,14 @@ body {
     display: inline-block;
     padding: 1em;
     color: #FFFFFF;
-    font-size: 1.4vw;
+    font-size: 1.8rem;
     position: relative;
     left: 50%;
     transform: translate(-50%, -55%);
     background-color: rgba(60, 60, 60, 0.9); }
+    @media only screen and (min-width: 48em) {
+      .equipment-section .wp-block-latest-posts.is-grid a {
+        font-size: 1.4vw; } }
 
 /* WP FORMS */
 .footer-form .eci-form.eci-footer-form input[type=text], .footer-form .eci-form.eci-footer-form input[type=email], .footer-form .eci-form.eci-footer-form textarea {

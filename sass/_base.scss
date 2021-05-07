@@ -72,6 +72,9 @@ h2 {
     @include respond(min-big-desktop) {
         font-size: 4.8rem;
     }
+    @include respond(only-phone) {
+        margin-top: 2em;
+    }
     margin: 0 0 1em;
     &::after {
         content:"";
@@ -106,6 +109,17 @@ h2 {
         color: black;
         font-weight: bold;
         text-transform: uppercase;
+    }
+}
+
+.site-header__menu {
+    .menu li {
+        @media only screen and (min-width:48em) and (max-width:63.9375em) {
+            font-size: 1rem;
+        }
+        @media only screen and (min-width:64em) and (max-width:74.9375em) {
+            font-size: 1.4rem;
+        }
     }
 }
 

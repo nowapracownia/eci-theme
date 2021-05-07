@@ -15,6 +15,22 @@
             display: none;
         }
     }
+
+    .lang-item a {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        overflow: hidden;
+        border: 1px solid;
+        position: relative;
+
+        img {
+            @include absoluteimage;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
 }
 
 /* WP LATEST POST BLOCK */
@@ -38,7 +54,10 @@
             display: inline-block;
             padding: 1em;
             color: $color-black;
-            font-size: 1.4vw;
+            font-size: 1.8rem;
+            @include respond(min-tablet) {
+                font-size: 1.4vw;
+            }
             text-transform: uppercase;
             position: relative;
             left: 50%;
@@ -66,7 +85,10 @@
             display: inline-block;
             padding: 1em;
             color: $color-white;
-            font-size: 1.4vw;
+            font-size: 1.8rem;
+            @include respond(min-tablet) {
+                font-size: 1.4vw;
+            }
             position: relative;
             left: 50%;
             transform: translate(-50%,-55%);
