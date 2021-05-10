@@ -1,4 +1,4 @@
-   <footer>
+    <footer><a name="menu5"></a>
         <?php
 
             if(isset($GLOBALS['meta']['fbg']) && !empty($GLOBALS['meta']['fbg'])) :

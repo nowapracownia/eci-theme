@@ -45,6 +45,11 @@ section {
     }
     grid-row: 1/2;
     position: relative;
+    @include respond(min-tablet) {
+        position: fixed;
+        width: 100%;
+        max-width: 168rem;
+    }
     z-index: 2;
 
     &__logo {
@@ -76,13 +81,14 @@ section {
 
     label {
         order: 2;
-        flex: 1 0 8.5%;
+        flex: 1 0 8%;
         z-index: 1;
         position: relative;
         cursor: pointer;
         @include respond(min-tablet) {
             order: 3;
             height: 11rem;
+            right: 3px;
         }
         @include flexcenter;
     }

@@ -7,6 +7,8 @@ add_theme_support( 'post-thumbnails' );
 function load_theme_assets() {
 	wp_enqueue_style( 'theme-style', get_stylesheet_uri() , array( 'main' ) );
     wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/style.css', array(), time() );
+
+    wp_enqueue_script( 'theme-scripts', get_stylesheet_directory_uri() . '/js/theme-scripts.js', array( 'jquery' ), time() , true );
 }
 add_action( 'wp_enqueue_scripts', 'load_theme_assets' );
 

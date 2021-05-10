@@ -248,6 +248,11 @@ footer, section {
   @media only screen and (min-width: 48em) {
     .site-header {
       flex-wrap: nowrap; } }
+  @media only screen and (min-width: 48em) {
+    .site-header {
+      position: fixed;
+      width: 100%;
+      max-width: 168rem; } }
   .site-header__logo {
     order: 1;
     flex: 0 0 50%;
@@ -275,7 +280,7 @@ footer, section {
         height: 11rem; } }
   .site-header label {
     order: 2;
-    flex: 1 0 8.5%;
+    flex: 1 0 8%;
     z-index: 1;
     position: relative;
     cursor: pointer;
@@ -285,7 +290,8 @@ footer, section {
     @media only screen and (min-width: 48em) {
       .site-header label {
         order: 3;
-        height: 11rem; } }
+        height: 11rem;
+        right: 3px; } }
   .site-header__trigger {
     display: none; }
     .site-header__trigger:checked ~ .site-header__inner {
