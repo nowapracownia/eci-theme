@@ -58,6 +58,23 @@ ul {
     transform: translateX(168rem);
     display: none; } }
 
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes moveOutTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    opacity: 0;
+    transform: translateY(-50rem);
+    display: none; } }
+
 /**
  * TYPOGRAPHY
  */
@@ -256,15 +273,21 @@ footer, section {
   .site-header__logo {
     order: 1;
     flex: 0 0 50%;
+    z-index: 10;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    transition: all .33s; }
     @media only screen and (min-width: 48em) {
       .site-header__logo {
         flex: 0 0 17.5%; } }
+  @media only screen and (min-width: 48em) {
+    .site-header.menu-fixed .site-header__logo {
+      max-height: 11rem; } }
   .site-header__inner {
     order: 3;
-    animation: moveOutRight .5s;
+    animation: moveOutTop .5s;
     animation-fill-mode: forwards;
     display: flex;
     flex: 0 0 100%;
@@ -281,7 +304,7 @@ footer, section {
   .site-header label {
     order: 2;
     flex: 1 0 8%;
-    z-index: 1;
+    z-index: 10;
     position: relative;
     cursor: pointer;
     display: flex;
@@ -295,7 +318,7 @@ footer, section {
   .site-header__trigger {
     display: none; }
     .site-header__trigger:checked ~ .site-header__inner {
-      animation: moveInRight .5s; }
+      animation: moveInTop .5s; }
   .site-header__menu .menu li {
     display: inline-block;
     margin-right: 1em; }
@@ -479,7 +502,12 @@ body {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: all .33s;
       transform: scale(0.75); }
+
+@media only screen and (min-width: 48em) {
+  .site-header.menu-fixed .site-header__logo a img {
+    transform: scale(0.25); } }
 
 .site-header__inner {
   background-color: #FFFFFF; }
@@ -535,23 +563,25 @@ body {
 
 .widget_polylang .lang-item a {
   display: inline-block;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 100%;
   overflow: hidden;
   border: 1px solid;
-  position: relative; }
+  position: relative;
+  background-size: cover; }
   .widget_polylang .lang-item a img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    width: 100% !important;
-    height: 100% !important; }
+    opacity: 0;
+    /* hide it, use hi res backgrounds instead */ }
+
+.widget_polylang .lang-item-pl a {
+  background-image: url(../img/polylang/pl.png); }
+
+.widget_polylang .lang-item-en a {
+  background-image: url(../img/polylang/en.png); }
+
+.widget_polylang .lang-item-ko a {
+  background-image: url(../img/polylang/ko.png); }
 
 /* WP LATEST POST BLOCK */
 .wp-block-latest-posts.is-grid .wp-block-latest-posts__featured-image {

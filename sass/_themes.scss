@@ -30,7 +30,18 @@ body {
 
             img {
                 @include absoluteimage;
+                @include basictransition;
                 transform: scale(.75);
+            }
+        }
+    }
+
+    &.menu-fixed &__logo {
+        a {
+            img {
+                @include respond(min-tablet) {
+                    transform: scale(.25);
+                }
             }
         }
     }

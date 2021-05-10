@@ -55,15 +55,24 @@ section {
     &__logo {
         order: 1;
         flex: 0 0 50%;
+        z-index: 10;
+        max-height: 100vh;
         @include respond(min-tablet) {
             flex: 0 0 17.5%;
         }
         @include flexcenter;
+        @include basictransition;
+    }
+
+    &.menu-fixed &__logo {
+        @include respond(min-tablet) {
+            max-height: 11rem;
+        }
     }
 
     &__inner {
         order: 3;
-        animation: moveOutRight .5s;
+        animation: moveOutTop .5s;
         animation-fill-mode: forwards;
         display: flex;
         flex: 0 0 100%;
@@ -82,7 +91,7 @@ section {
     label {
         order: 2;
         flex: 1 0 8%;
-        z-index: 1;
+        z-index: 10;
         position: relative;
         cursor: pointer;
         @include respond(min-tablet) {
@@ -97,7 +106,7 @@ section {
         display:none;
 
         &:checked ~ .site-header__inner {
-            animation: moveInRight .5s;
+            animation: moveInTop .5s;
         }
 
     }
