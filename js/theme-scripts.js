@@ -1,5 +1,6 @@
 (function($){
     $(document).ready(function() {
+
         $('.menu a').click(function(e) {
             e.preventDefault();
             let thisAnchor = $(this).attr('href');
@@ -29,7 +30,7 @@
             /* match element to append new posts */
             let loadCatPosts = $(this).find('a').attr('href');
             let settings = {
-              "url": "http://localhost/localwww/ecicorp.pl/wp-json/wp/v2/posts?categories=" + loadCatPosts,
+              "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/posts?categories=" + loadCatPosts + "&offset=3&orderby=date&order=asc",
               "method": "GET",
               "timeout": 0,
             };
@@ -52,18 +53,24 @@
     function createHTML(postsData,appendToElement) {
         let newHTMLString = '';
         let newHTMLFeatured = '';
-        for (i = 0; i < postsData.length; i++) {
-            let settings = {
-              "url": "http://localhost/localwww/ecicorp.pl/wp-json/wp/v2/media/" + postsData[i].featured_media,
-              "method": "GET",
-              "timeout": 0,
-            };
-            $.ajax(settings).done(function (response) {
-                newHTMLFeatured = '<div class="wp-block-latest-posts__featured-image"><img src="'+response.source_url+'" class="attachment-medium size-medium wp-post-image"></div>';
-                $('.wp-block-latest-posts_ajax-' + response.id).prepend(newHTMLFeatured);
-            });
+        let emptyHTMLString = '---';
+        if(postsData.length > 0) {
+            for (i = 0; i < postsData.length; i++) {
+                let settings = {
+                  "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/media/" + postsData[i].featured_media,
+                  "method": "GET",
+                  "timeout": 0,
+                };
+                $.ajax(settings).done(function (response) {
+                    newHTMLFeatured = '<div class="wp-block-latest-posts__featured-image"><img src="'+response.source_url+'" class="attachment-medium size-medium wp-post-image"></div>';
+                    $('.wp-block-latest-posts_ajax-' + response.id).prepend(newHTMLFeatured);
+                });
 
-            newHTMLString += '<li class="wp-block-latest-posts_ajax-'+postsData[i].featured_media+'"><a href="'+postsData[i].link+'">'+postsData[i].title.rendered+'</a><div class="wp-block-latest-posts__post-full-content">'+postsData[i].content.rendered+'</div></li>';
+                newHTMLString += '<li class="wp-block-latest-posts_ajax-'+postsData[i].featured_media+'"><a href="'+postsData[i].link+'">'+postsData[i].title.rendered+'</a><div class="wp-block-latest-posts__post-full-content">'+postsData[i].content.rendered+'</div></li>';
+            }
+        }
+        else {
+            newHTMLString += '<li class="wp-block-latest-posts__ajax-end">' + emptyHTMLString + '</li>';
         }
         $(appendToElement).append(newHTMLString);
     }

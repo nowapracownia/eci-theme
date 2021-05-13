@@ -658,6 +658,11 @@ body {
       .equipment-section .wp-block-latest-posts.is-grid a {
         font-size: 1.4vw; } }
 
+.wp-block-latest-posts__ajax-end {
+  flex: 0 0 100%;
+  text-align: center;
+  z-index: 1; }
+
 /* WP FORMS */
 .footer-form .eci-form.eci-footer-form input[type=text], .footer-form .eci-form.eci-footer-form input[type=email], .footer-form .eci-form.eci-footer-form textarea {
   border-radius: .4rem;
