@@ -170,6 +170,12 @@ h2 {
       display: inline-block;
       font-style: normal; }
 
+/**
+ * UTILS
+ */
+.ukryj {
+  display: none !important; }
+
 .menu-toggle {
   display: block;
   position: relative;

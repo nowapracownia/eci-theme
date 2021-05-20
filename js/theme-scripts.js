@@ -23,6 +23,10 @@
             }
         });
 
+        $('.wp-block-latest-posts a').click(function(e) {
+            e.preventDefault();
+        });
+
         $('.wp-block-button__ajax-load').click(function(e) {
             e.preventDefault();
             /* don't load category template */
@@ -62,17 +66,20 @@
                   "timeout": 0,
                 };
                 $.ajax(settings).done(function (response) {
-                    newHTMLFeatured = '<div class="wp-block-latest-posts__featured-image"><img src="'+response.source_url+'" class="attachment-medium size-medium wp-post-image"></div>';
-                    $('.wp-block-latest-posts_ajax-' + response.id).prepend(newHTMLFeatured);
+                    $('.wp-block-latest-posts_ajax-' + response.id + ' .wp-block-latest-posts__featured-image img').attr('src',response.source_url);
                 });
 
-                newHTMLString += '<li class="wp-block-latest-posts_ajax-'+postsData[i].featured_media+'"><a href="'+postsData[i].link+'">'+postsData[i].title.rendered+'</a><div class="wp-block-latest-posts__post-full-content">'+postsData[i].content.rendered+'</div></li>';
+                newHTMLString += '<li class="wp-block-latest-posts_ajax-'+postsData[i].featured_media+'"><div class="wp-block-latest-posts__featured-image"><img src="https://stage.presspro.dev/ecicorp/wp-content/themes/presspro-original-theme/img/preloader-small.svg" class="attachment-medium size-medium wp-post-image"></div><a href="'+postsData[i].link+'">'+postsData[i].title.rendered+'</a><div class="wp-block-latest-posts__post-full-content">'+postsData[i].content.rendered+'</div></li>';
             }
         }
         else {
             newHTMLString += '<li class="wp-block-latest-posts__ajax-end">' + emptyHTMLString + '</li>';
         }
         $(appendToElement).append(newHTMLString);
+
+        $('.wp-block-latest-posts a').click(function(e) {
+            e.preventDefault();
+        });
     }
 
 }(jQuery));
