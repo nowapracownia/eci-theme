@@ -113,6 +113,9 @@ h2 {
     }
     &.has-text-align-right::after {
         margin-left: auto;
+        @include respond(only-phone) {
+            margin-left: 0;
+        }
     }
     &.section-header {
         text-align: center;

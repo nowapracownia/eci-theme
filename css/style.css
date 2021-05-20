@@ -105,6 +105,9 @@ h2 {
         height: 5px; } }
   h2.has-text-align-right::after {
     margin-left: auto; }
+    @media only screen and (max-width: 37.5em) {
+      h2.has-text-align-right::after {
+        margin-left: 0; } }
   h2.section-header {
     text-align: center;
     position: relative;
@@ -209,6 +212,20 @@ h2 {
   #site-header-trigger:checked + label .menu-toggle::before {
     bottom: 0;
     transform: rotate(45deg); }
+
+.eci-image-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9); }
+  .eci-image-overlay img.eci-image-overlay__image {
+    max-width: 80%; }
 
 /* ECI OVERRIDES */
 #eci .wp-block-button__link {
@@ -451,6 +468,10 @@ footer, section {
   position: relative;
   left: 50%;
   transform: translate(-50%); }
+
+@media only screen and (max-width: 37.5em) {
+  .wp-block-latest-posts.is-grid li {
+    margin-right: 0; } }
 
 .site-footer {
   width: 100%;

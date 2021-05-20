@@ -5,7 +5,6 @@
             e.preventDefault();
             let thisAnchor = $(this).attr('href');
             thisAnchor = thisAnchor.substring(1);
-            console.log(thisAnchor);
             scrollToAnchor(thisAnchor);
         });
         $(window).scroll(function() {
@@ -25,6 +24,8 @@
 
         $('.wp-block-latest-posts a').click(function(e) {
             e.preventDefault();
+            let thisLink = $(this);
+            createOverlay(thisLink);
         });
 
         $('.wp-block-button__ajax-load').click(function(e) {
@@ -77,8 +78,37 @@
         }
         $(appendToElement).append(newHTMLString);
 
-        $('.wp-block-latest-posts a').click(function(e) {
+        $('.wp-block-latest-posts a').off('click').click(function(e) {
             e.preventDefault();
+            let thisLink = $(this);
+            createOverlay(thisLink);
+        });
+    }
+    function createOverlay(thisLink) {
+        $('body').append('<div class="eci-image-overlay"><img class="eci-image-overlay__preloader" src="https://stage.presspro.dev/ecicorp/wp-content/themes/presspro-original-theme/img/preloader-small.svg"></div>');
+        let thisHref = thisLink.attr('href');
+        let thisHrefArray = thisHref.split('/');
+        let thisSlug = thisHrefArray[thisHrefArray.length - 2];
+        let settings = {
+          "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/posts?slug="+thisSlug,
+          "method": "GET",
+          "timeout": 0,
+        };
+
+        $.ajax(settings).done(function (response) {
+            let mediaSettings = {
+              "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/media/"+response[0].featured_media,
+              "method": "GET",
+              "timeout": 0,
+            };
+
+            $.ajax(mediaSettings).done(function (mediaResponse) {
+                let overlayHTML = '<img class="eci-image-overlay__image" src="' + mediaResponse.source_url + '">';
+                $('.eci-image-overlay__preloader').remove();
+                $('.eci-image-overlay').append(overlayHTML).click(function() {
+                    $(this).remove();
+                });
+            });
         });
     }
 
