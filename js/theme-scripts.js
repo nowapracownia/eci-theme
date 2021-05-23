@@ -53,7 +53,7 @@
     });
     function scrollToAnchor(aid){
         var aTag = $("a[name='"+ aid +"']");
-        $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+        $('html,body').animate({scrollTop: aTag.offset().top - 150},'slow');
     }
     function createHTML(postsData,appendToElement) {
         let newHTMLString = '';

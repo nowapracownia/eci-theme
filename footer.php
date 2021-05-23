@@ -1,4 +1,4 @@
-    <footer><a name="menu5"></a>
+    <footer><a name="menu6"></a>
         <?php
 
             if(isset($GLOBALS['meta']['fbg']) && !empty($GLOBALS['meta']['fbg'])) :
@@ -11,7 +11,6 @@
             <?php endif;
 
         ?>
-        <p><?php _e('Footer','mti-test'); ?></p>
     </footer>
 </div> <!-- end site wrapper -->
 <?php wp_footer(); ?>

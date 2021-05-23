@@ -27,6 +27,7 @@ footer, section {
     @include respond(min-tablet) {
         grid-column: 2/-2;
     }
+    max-width: -moz-available;
 }
 
 section {
@@ -224,7 +225,7 @@ section {
             }
         }
 
-        p {
+        p:not(.no-pointer) {
             position: relative;
             margin-bottom: 1em;
             @include respond(min-tablet) {
@@ -266,6 +267,7 @@ section {
     }
     .counter-section {
         width: 100vw;
+        max-width: 168rem;
         position: relative;
         left: 50%;
         transform: translate(-50%);
