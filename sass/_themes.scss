@@ -101,5 +101,26 @@ body {
             right: 0;
             transform: translate(70%,50%);
         }
+
+        @include respond(max-tablet) {
+            p:not(.no-pointer)::before {
+                content: "-";
+                position: absolute;
+                top: -1px;
+                left: -16px;
+                right: auto;
+                transform: scaleX(2);
+                color: $color-primary;
+            }
+        }
+
+        &.has-media-on-the-right {
+            @media only screen and (min-width: 601px) and (max-width: 767px) {
+                p:not(.no-pointer)::before {
+                    left: auto;
+                    right: -16px;
+                }
+            }
+        }
     }
 }
