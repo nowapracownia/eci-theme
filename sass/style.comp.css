@@ -580,6 +580,19 @@ body {
     bottom: 0;
     right: 0;
     transform: translate(70%, 50%); }
+  @media only screen and (max-width: 47.9375em) {
+    .main-section .wp-block-media-text p:not(.no-pointer)::before {
+      content: "-";
+      position: absolute;
+      top: -1px;
+      left: -16px;
+      right: auto;
+      transform: scaleX(2);
+      color: #FFCC00; } }
+  @media only screen and (min-width: 601px) and (max-width: 767px) {
+    .main-section .wp-block-media-text.has-media-on-the-right p:not(.no-pointer)::before {
+      left: auto;
+      right: -16px; } }
 
 /* LOGO CAROUSEL */
 .swiper-wrapper {
