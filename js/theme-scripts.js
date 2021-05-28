@@ -1,4 +1,7 @@
 (function($){
+
+    let domainBaseURL = 'https://stage.presspro.dev/ecicorp';
+
     $(document).ready(function() {
 
         $('.menu a').click(function(e) {
@@ -35,7 +38,7 @@
             /* match element to append new posts */
             let loadCatPosts = $(this).find('a').attr('href');
             let settings = {
-              "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/posts?categories=" + loadCatPosts + "&offset=3&orderby=date&order=asc",
+              "url": domainBaseURL + "/wp-json/wp/v2/posts?categories=" + loadCatPosts + "&offset=3&orderby=date&order=asc",
               "method": "GET",
               "timeout": 0,
             };
@@ -62,7 +65,7 @@
         if(postsData.length > 0) {
             for (i = 0; i < postsData.length; i++) {
                 let settings = {
-                  "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/media/" + postsData[i].featured_media,
+                  "url": domainBaseURL + "/wp-json/wp/v2/media/" + postsData[i].featured_media,
                   "method": "GET",
                   "timeout": 0,
                 };
@@ -70,7 +73,7 @@
                     $('.wp-block-latest-posts_ajax-' + response.id + ' .wp-block-latest-posts__featured-image img').attr('src',response.source_url);
                 });
 
-                newHTMLString += '<li class="wp-block-latest-posts_ajax-'+postsData[i].featured_media+'"><div class="wp-block-latest-posts__featured-image"><img src="https://stage.presspro.dev/ecicorp/wp-content/themes/presspro-original-theme/img/preloader-small.svg" class="attachment-medium size-medium wp-post-image"></div><a href="'+postsData[i].link+'">'+postsData[i].title.rendered+'</a><div class="wp-block-latest-posts__post-full-content">'+postsData[i].content.rendered+'</div></li>';
+                newHTMLString += '<li class="wp-block-latest-posts_ajax-'+postsData[i].featured_media+'"><div class="wp-block-latest-posts__featured-image"><img src="'+ domainBaseURL +'/wp-content/themes/presspro-original-theme/img/preloader-small.svg" class="attachment-medium size-medium wp-post-image"></div><a href="'+postsData[i].link+'">'+postsData[i].title.rendered+'</a><div class="wp-block-latest-posts__post-full-content">'+postsData[i].content.rendered+'</div></li>';
             }
         }
         else {
@@ -85,19 +88,19 @@
         });
     }
     function createOverlay(thisLink) {
-        $('body').append('<div class="eci-image-overlay"><img class="eci-image-overlay__preloader" src="https://stage.presspro.dev/ecicorp/wp-content/themes/presspro-original-theme/img/preloader-small.svg"></div>');
+        $('body').append('<div class="eci-image-overlay"><img class="eci-image-overlay__preloader" src="'+ domainBaseURL +'/wp-content/themes/presspro-original-theme/img/preloader-small.svg"></div>');
         let thisHref = thisLink.attr('href');
         let thisHrefArray = thisHref.split('/');
         let thisSlug = thisHrefArray[thisHrefArray.length - 2];
         let settings = {
-          "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/posts?slug="+thisSlug,
+          "url": domainBaseURL + "/wp-json/wp/v2/posts?slug="+thisSlug,
           "method": "GET",
           "timeout": 0,
         };
 
         $.ajax(settings).done(function (response) {
             let mediaSettings = {
-              "url": "https://stage.presspro.dev/ecicorp/wp-json/wp/v2/media/"+response[0].featured_media,
+              "url": domainBaseURL + "/wp-json/wp/v2/media/"+response[0].featured_media,
               "method": "GET",
               "timeout": 0,
             };
